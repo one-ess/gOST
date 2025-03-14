@@ -1,0 +1,128 @@
+.track {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 6px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  @media (max-width: 560px) {
+    padding: 3px;
+    border-width: 1px;
+    border-radius: 14px;
+  }
+  &:hover,
+  &:focus {
+    .track__img-inner {
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotateY(0);
+      }
+    }
+  }
+  &:active {
+    .track__img-inner {
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotateY(0) scale(1.3);
+      }
+    }
+  }
+
+  &_active {
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease-in-out;
+    .track__img-inner {
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotateY(0);
+        background-image: url("./img/pause.svg");
+      }
+    }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+      .track__img-inner {
+        &::after {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  &_pause {
+    .track__img-inner {
+      &::after {
+        background-image: url("./img/play.svg");
+      }
+    }
+  }
+
+  &__img-inner {
+    position: relative;
+    border-radius: 12px 12px 0 0;
+    line-height: 0;
+    overflow: hidden;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 36px;
+      height: 36px;
+      opacity: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      transform: translate(-50%, -50%) rotateY(90deg);
+      background-image: url("./img/play.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &__poster {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  &__info {
+    flex-grow: 1;
+    width: 100%;
+    padding: 14px 8px;
+    border-radius: 0 0 12px 12px;
+    background-color: #fff;
+    text-align: left;
+    color: #000;
+    @media (max-width: 560px) {
+      padding: 8px;
+    }
+  }
+}
+
+.track-info {
+  &__title {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #000;
+    @media (max-width: 560px) {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__artist {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 300;
+    color: #000;
+    @media (max-width: 560px) {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+}

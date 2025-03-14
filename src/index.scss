@@ -1,0 +1,11 @@
+@use "./scss/settings/fonts";
+@use "./scss/settings/null";
+@use "./scss/settings/base";
+
+@use "./scss/global/global";
+
+@use "./scss/components/header";
+@use "./scss/components/catalog";
+@use "./scss/components/preloader";
+@use "./scss/components/track";
+@use "./scss/components/player";
